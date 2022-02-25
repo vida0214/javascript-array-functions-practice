@@ -33,19 +33,35 @@ const characters = [
 //1. Get array of all names
 const characterNames = characters.map((characterName) => characterName.name);
 console.log(characterNames);
+
 //2. Get array of all heights
 const characterHeights = characters.map((characterHeight) => characterHeight.height);
 console.log(characterHeights);
+
 //3. Get array of objects with just name and height properties
 const shorterCharacters = characters.map((item) => ({name: item.name, height: item.height}));
 console.log(shorterCharacters);
+
 //4. Get array of all first names
 const firstNames = characters.map((item) => item.name.split(" ")[0]);
 console.log(firstNames);
 
 //***REDUCE***
 //1. Get total mass of all characters
+let characterMass = []; //get mass of each characters into one array
+characters.forEach((item) => characterMass.push(item.mass));
+console.log(characterMass); //verify the array contains the correct numbers
+const totalMass = characterMass.reduce((previousValue, currentValue) => {
+    return previousValue + currentValue;
+}, 0);
+console.log(totalMass);
+
 //2. Get total height of all characters
+let eachHeight = [];
+characters.forEach((item) => eachHeight.push(item.height));
+const totalHeight = eachHeight.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
+console.log(totalHeight);
+
 //3. Get total number of characters by eye color
 //4. Get total number of characters in all the character names
 
